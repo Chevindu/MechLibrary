@@ -55,7 +55,7 @@ class WEBLIB_ShortCodes {
     }
     $result .= "</select>\n";
     $result .= '<label for="searchbox">'.__('for','weblibrarian').'</label><input id="searchbox" name="searchbox" value="'.$searchbox.'" /><br />';
-    $result .= '<label for="weblib_orderby">'.__('Sort by:','weblibrarian').'</label>';
+/*    $result .= '<label for="weblib_orderby">'.__('Sort by:','weblibrarian').'</label>';
     $result .= '<select id="weblib_orderby" name="weblib_orderby">';
     foreach (array('barcode' => __('System Sorted','weblibrarian'),
 		   'title' => __('Title','weblibrarian'),
@@ -73,7 +73,7 @@ class WEBLIB_ShortCodes {
       if ($value == $weblib_order) {$result .= ' selected="selected"';}
       $result .= '>'.$label."</option>\n";
     }
-    $result .= "</select>\n";
+    $result .= "</select>\n";*/
     $result .= '<br /><input class="weblib-button" type="submit" value="'.__('Search','weblibrarian').'" /></p>';
     $result .= "</form>\n";
     return $result;
@@ -176,9 +176,9 @@ class WEBLIB_ShortCodes {
 
     $result .= '<span class="weblib-total-results">';
     if ($total_items==1) {
-	$result .= __('1 Item Matched.','weblibrarian');
+	$result .= __('1 item matched.','weblibrarian');
     } else {
-	$result .= sprintf(__('%d Items Matched.','weblibrarian'),$total_items);
+	$result .= sprintf(__('%d items matched.','weblibrarian'),$total_items);
     }
     $result .= '</span><br clear="all" />';
 

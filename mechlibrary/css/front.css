@@ -502,7 +502,7 @@ a.weblib-button:link {
 .weblib-item-pagination-table {
   display: table;
   width: 40%;
-  margin: 2px 30%;
+  margin: auto;
 }
 
 .weblib-item-pagination {
@@ -530,13 +530,15 @@ a.weblib-button:link {
 
 .weblib-total-results {
   white-space: nowrap;
-  font-weight: bold;
-  font-size: 150%;
-  float: left;
+  font-size: 120%;
+  margin: auto !important;
+  text-align: center;
+  display: block;
 }
 
 .weblib-item-long {
-  display: table;
+  display: grid;
+	grid-template-rows: minmax(7em, auto);
 }
 
 .weblib-item-row {
@@ -600,7 +602,7 @@ a.weblib-button:link {
 
 .weblib-item-element {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
   padding: 2px;
 }
 
@@ -666,10 +668,6 @@ form#searchform > p > label {
   margin: 5px auto;
 }
 
-.weblib-item-pagination-table {
-	margin: auto !important;
-}
-
 form > p > input.weblib-button {
 	display: block;
 	margin: 0.3em auto;
@@ -687,16 +685,7 @@ select#weblib_order{
 	display:none;
 }
 
-.weblib-item-long {
-	display: grid;
-	grid-template-rows: minmax(7em, auto);
-}
-
 .weblib-item-head {
 	display:grid;
 	grid-template-columns: auto auto;
-}
-
-.weblib-item-element {
-vertical-align:middle;
 }
