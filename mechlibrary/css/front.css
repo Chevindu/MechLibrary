@@ -341,7 +341,6 @@ td.plugin-title p {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-decoration: none !important;
-	color: #444;
 }
 
 .column-comments .sorting-indicator:before {
@@ -465,38 +464,39 @@ span.overdue {
 
 /* Common button styling */
 .weblib-button {
-  border: outset 2px #dcdad5;
-  cursor: pointer;
-  color: #000000;
-  background-color: #dcdad5;
+	-moz-box-shadow: 0px 5px 7px -7px #276873;
+	-webkit-box-shadow: 0px 5px 7px -7px #276873;
+	box-shadow: 0px 5px 7px -7px #276873;
+	background-color:#599bb3 !important;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	margin: 0px 1px;
 }
 
 .weblib-button:hover {
-  font-weight: normal;
-  color: #000000;
-  text-decoration: none;
+	background-color:#408c99 !important;
+}
+
+.weblib-button:active {
+	position:relative;
+	top:1px;
 }
 
 /* Links-as-buttons styling */
 a.weblib-button {
-  height: 24px;
-  white-space: nowrap;
-  /*padding: 2px;*/
-  padding: 0px;
-/*  margin-top: 2px;
-  margin-bottom: 2px;*/
+	height: 2em;
+	white-space: nowrap;
+	padding: 0px 0.5em;
+	background-color: #599bb3;
+	margin: 0px 1px;
 }
 
 a.weblib-button:link {
   font-weight: normal;
   color: #000000;
-  text-decoration: none;
-}
-
-a.weblib-button:visited {
-  color: #000000;
-  font-weight: normal;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .weblib-item-pagination-table {
@@ -512,16 +512,15 @@ a.weblib-button:visited {
 }
 
 .weblib-item-pagination .pagelabel {
-  vertical-align: top;
+  vertical-align: middle;
   display: table-caption;
   padding: 2px;
   font-weight: bold;
 }
 
 .weblib-item-pagination .pagelink {
-  vertical-align: top;
+  vertical-align: middle;
   display: table-cell;
-  margin: 0px;
 }
 
 .weblib-item-pagination .pagenumform {
@@ -643,10 +642,16 @@ a.weblib-button:visited {
     .pagelabel {
         display:none !important;
     }
+	  .pagelink {
+        display:none !important;
+    }
+	  .pagenumform {
+		display: table-cell !important;
+	  }
 }
 
 .site-header {
-margin-bottom: 1em;
+padding: 1em !important;
 }
 
 .content-area {
@@ -657,6 +662,41 @@ form#searchform > p > label {
   padding-right: 5px;
 }
 
-input[type="text"] {
-  text-align: center;
+#searchform {
+  margin: 5px auto;
+}
+
+.weblib-item-pagination-table {
+	margin: auto !important;
+}
+
+form > p > input.weblib-button {
+	display: block;
+	margin: 0.3em auto;
+}
+
+label[for="weblib_orderby"]{
+	display:none;
+}
+
+select#weblib_orderby{
+	display:none;
+}
+
+select#weblib_order{
+	display:none;
+}
+
+.weblib-item-long {
+	display: grid;
+	grid-template-rows: minmax(7em, auto);
+}
+
+.weblib-item-head {
+	display:grid;
+	grid-template-columns: auto auto;
+}
+
+.weblib-item-element {
+vertical-align:middle;
 }

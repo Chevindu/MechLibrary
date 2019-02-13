@@ -299,20 +299,33 @@ class WEBLIB_ShortCodes {
     switch ($detaillevel) {
       case 'long':
 	$result .= '<div class="weblib-item-long">';
-	$result .= '<div class="weblib-item-head weblib-item-row">';
+  $result .= '<div class="weblib-item-head">';
+
 	$result .= '<div class="weblib-item-left weblib-item-element">';
-        $result .= '<div class="weblib-item-content-block">';
+  $result .= '<span class="weblib-item-thumb">';
+	if ($item->thumburl() != '') {
+	  $result .= '<img src="'.$item->thumburl().'" border="0"  />';
+	} else {
+	  $result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
+	}
+  $result .= '</span><!-- weblib-item-thumb -->';
+  $result .= '</div><!-- weblib-item-left -->';
+
+  $result .= '<div class="weblib-item-right weblib-item-element">';
 	$result .= '<span class="weblib-item-content-element">';
 	$result .= '<span class="weblib-item-left-head">'.__('Title: ','weblibrarian').'</span>';
 	$result .= '<span class="weblib-item-left-content weblib-item-title">'.$item->title().'</span>';
 	$result .= '</span><!-- weblib-item-content-element -->';
+
 	$result .= '<span class="weblib-item-content-element">';
 	$result .= '<span class="weblib-item-left-head">'.__('Author: ','weblibrarian').'</span>';
 	$result .= '<span class="weblib-item-left-content weblib-item-author">'.$item->author().'</span>';
 	$result .= '</span><!-- weblib-item-content-element -->';
+
 	$result .= '<span class="weblib-item-content-element">';
 	$result .= '<span class="weblib-item-left-head">'.__('Published: ','weblibrarian').'</span>';
 	$result .= '<span class="weblib-item-left-content">';
+
 	$publoc  = $item->publocation();
 	$pub     = $item->publisher();
 	$pubyear = $item->pubyear();
@@ -323,26 +336,19 @@ class WEBLIB_ShortCodes {
         $result .= ' '.$pubyear;
 	$result .= '</span><!-- weblib-item-left-content -->';
 	$result .= '</span><!-- weblib-item-content-element -->';
-	$result .= '</div><!-- weblib-item-content-block -->';
-        $result .= '</div><!-- weblib-item-left -->';
-	$result .= '<div class="weblib-item-right weblib-item-element">';
-	$result .= '<span class="weblib-item-thumb">';
-	if ($item->thumburl() != '') {
-	  $result .= '<img src="'.$item->thumburl().'" border="0"  />';
-	} else {
-	  $result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
-	}
-        $result .= '</span><!-- weblib-item-thumb -->';
+
+
+// Hold Button activation
 	if ($holdbutton) {
 	  $result .= '<br /><span class="weblib-item-holdbutton">';
 	  $result .= '<input class="weblib-button" type="button" value="'.__('Request','weblibrarian').'" onClick="PlaceHold('."'".$barcode."');".'" />';
 	  $result .= '</span><!-- weblib-item-holdbutton -->';
 	}
-	$result .= '</div><!-- weblib-item-right" -->';
+
+  $result .= '</div><!-- weblib-item-right" -->';
 	$result .= '</div><!-- weblib-item-head -->';
-	$result .= '<div class="weblib-item-body weblib-item-row">';
-	$result .= '<div class="weblib-item-left weblib-item-element">';
-	$result .= '<div class="weblib-item-content-block">';
+
+  $result .= '<div class="weblib-item-body">';
 	$result .= '<span class="weblib-item-content-element">';
 	$result .= '<span class="weblib-item-left-head">'.__('Status: ','weblibrarian').'</span>';
 	$result .= '<span class="weblib-item-left-content">';
@@ -415,20 +421,23 @@ class WEBLIB_ShortCodes {
 	  $result .= '<div class="weblib-item-left-content">'.$item->description().'</div>';
 	  $result .= '</span><!-- weblib-item-content-element -->';
 	}
-	$result .= '</div><!-- weblib-item-content-block -->';
-	$result .= '</div><!-- weblib-item-left -->';
-	$result .= '<div class="weblib-item-right weblib-item-element">';
-	$result .= '<span class="weblib-item-center-head">'.__('Keywords','weblibrarian').'</span>';
-	$result .= '<p class="weblib-item-keyword-list">';
-	$space  = '';
+
+  if ($item->keywordsof() != '') {
+	  $result .= '<span class="weblib-item-content-element">';
+	  $result .= '<span class="weblib-item-center-head">'.__('Keywords','weblibrarian').'</span>';
+	  $result .= '<p class="weblib-item-keyword-list">';
+	  $space  = '';
 	foreach ($item->keywordsof() as $keyword) {
 	  $result .= $space.$keyword;
 	  $space  = ' ';
 	}
 	$result .= '</p>';
-	$result .= '</div><!-- weblib-item-right" -->';
+  $result .= '</span><!-- weblib-item-content-element -->';
+}
+
 	$result .= '</div><!-- weblib-item-body -->';
 	$result .= '</div><!-- weblib-item-long -->';
+
 	break;
       case 'brief':
       default:
