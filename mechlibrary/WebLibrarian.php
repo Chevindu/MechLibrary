@@ -6,8 +6,10 @@
  * Version: 1.0.1
  * Author: Chevindu Wickramathilaka
  * Author URI: https://chevindu.github.io/
+ * User guide: http://mech-library.gitbook.io/
  * Text Domain: mechlibrary
  * Domain Path: /languages
+ * 
  *
  *  Web Librarian WP Plugin
  *  Copyright (C) 2011  Robert Heller D/B/A Deepwoods Software
