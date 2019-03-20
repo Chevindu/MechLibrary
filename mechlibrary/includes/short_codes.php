@@ -424,7 +424,7 @@ class WEBLIB_ShortCodes {
 
   if ($item->keywordsof() != '') {
 	  $result .= '<span class="weblib-item-content-element">';
-	  $result .= '<span class="weblib-item-center-head">'.__('Keywords','weblibrarian').'</span>';
+	  $result .= '<span class="weblib-item-center-head">'.__('Keywords: ','weblibrarian').'</span>';
 	  $result .= '<p class="weblib-item-keyword-list">';
 	  $space  = '';
 	foreach ($item->keywordsof() as $keyword) {
