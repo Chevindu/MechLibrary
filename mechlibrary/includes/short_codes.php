@@ -306,7 +306,7 @@ class WEBLIB_ShortCodes {
 	if ($item->thumburl() != '') {
 	  $result .= '<img src="'.$item->thumburl().'" border="0"  />';
 	} else {
-	  $result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
+	  //$result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
 	}
   $result .= '</span><!-- weblib-item-thumb -->';
   $result .= '</div><!-- weblib-item-left -->';
@@ -445,7 +445,7 @@ class WEBLIB_ShortCodes {
 	if ($item->thumburl() != '') {
 	  $result .= '<img src="'.$item->thumburl().'" border="0" />';
 	} else {
-	  $result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
+	  //$result .= '<img src="'.WEBLIB_IMAGEURL.'/nothumb.png" border="0" width="48" height="72" />';
 	}
         $result .= '</span>';
 	$result .= '<span class="weblib-item-brief weblib-item-info weblib-item-element">';
